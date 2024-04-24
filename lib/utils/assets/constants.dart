@@ -1,3 +1,3 @@
 class Constant{
-  String metamask = "assets/pngs/metamsk.png";
+  var metamask = "assets/pngs/MetaMask.png";
 }
