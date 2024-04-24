@@ -75,7 +75,7 @@ class User {
       'address': address,
       'image': image,
       'authId': authId,
-      'records': records?.map((x) => x.toMap()).toList(),
+      // 'records': records?.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -92,7 +92,7 @@ class User {
       address: map['address'] != null ? map['address'] as String : null,
       image: map['image'] != null ? map['image'] as String : null,
       authId: map['authId'] != null ? map['authId'] as String : null,
-      records: map['records'] != null ? List<Record>.from((map['records'] as List<int>).map<Record?>((x) => Record.fromMap(x as Map<String,dynamic>),),) : null,
+      // records: map['records'] != null ? List<Record>.from((map['records'] as List<int>).map<Record?>((x) => Record.fromMap(x as Map<String,dynamic>),),) : null,
     );
   }
 
