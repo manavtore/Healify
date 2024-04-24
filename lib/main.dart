@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healtify/screens/loginscreen.dart';
 import 'package:healtify/utils/routes/routes.dart';
 
 void main() {
@@ -17,9 +18,10 @@ class MyApp extends StatelessWidget {
       ),
       
       home: MaterialApp(
-        initialRoute: StatRoutes.loginRoute,
-        routes: const {
-          
+        initialRoute: '/login',
+        routes: {
+          '/': (context) => loginpage(), // If you want a default route
+        StatRoutes.loginRoute: (context) => loginpage(), 
         },
       ),
     );

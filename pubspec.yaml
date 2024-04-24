@@ -38,6 +38,7 @@ dependencies:
   url_launcher: ^6.2.6
   walletconnect_dart: ^0.0.11
   slider_button: ^2.1.0
+  build_runner: ^2.4.9
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +50,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+  build_web_compilers: ^4.0.10
 
 
 # For information on the generic Dart part of this file, see the
