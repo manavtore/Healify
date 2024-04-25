@@ -3,24 +3,17 @@ import 'package:healtify/utils/assets/constants.dart';
 import 'package:web3modal_flutter/web3modal_flutter.dart';
 
 
-class loginpage extends StatefulWidget {
-   const loginpage({super.key});
+class Notifier extends ChangeNotifier {
+  String _accountNo = "";
+  String _balance = "";
 
-  @override
-  State<loginpage> createState() => _loginpageState();
-}
+  String get accountNo => _accountNo;
+  String get balance => _balance;
 
-class _loginpageState extends State<loginpage> {
-  late W3MService _w3mService;
- @override
- void initState() {
-   super.initState();
-   initializeState();
- }
-  
+    late W3MService w3mService;
   Future<void> initializeState() async {
      W3MChainPresets.chains.putIfAbsent('11155111', () => _sepoliaChain);
-  _w3mService = W3MService(
+  w3mService = W3MService(
     projectId: 'ad97cf0cb32ec02d49278d00655f1ef5',
     metadata: const PairingMetadata(
       name: 'Healtify',
@@ -33,26 +26,23 @@ class _loginpageState extends State<loginpage> {
       ),
     ),
   );
-  await _w3mService.init();
+  await w3mService.init();
 }
-  @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image(image: AssetImage(Constant().metamask)),
-                W3MConnectWalletButton(service: _w3mService),
-
-                // W3MNetworkSelectButton(service: _w3mService),
-                // W3MAccountButton(service: _w3mService)
-
-          ],
-      ),
-    )
-    );
+ 
+   void updateAccountNo() {
+    _accountNo =w3mService.address!;
+    notifyListeners();
   }
+
+  void updateBalance(String balance) {
+    _balance = balance;
+    notifyListeners();
+  }
+
+  void init() {}
+}
+
+mixin address {
 }
 
 const chainId = "11155111";

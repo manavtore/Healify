@@ -1,4 +1,4 @@
-package com.example.healtify
+package com.example.healify
 
 import io.flutter.embedding.android.FlutterActivity
 
