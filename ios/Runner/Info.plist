@@ -28,11 +28,19 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+  		<string>metamask</string>
+ 		<string>trust</string>
+  		<string>safe</string>
+  		<string>rainbow</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>cbwallet</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

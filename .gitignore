@@ -46,3 +46,5 @@ app.*.map.json
 #BlockChain
 BlockChain/node_modules/
 BlockChain/.env
+
+Backend/node_modules/
