@@ -18,12 +18,6 @@ class _LoginpageState extends State<Loginpage> {
   @override
   void initState() {
     super.initState();
-    if(loginNotifier.w3mService.address!=null){
-       Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Homescreen()),
-                  ); 
-    }
     loginNotifier.initializeState();
     
   }
