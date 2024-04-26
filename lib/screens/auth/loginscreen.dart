@@ -18,7 +18,14 @@ class _LoginpageState extends State<Loginpage> {
   @override
   void initState() {
     super.initState();
+    if(loginNotifier.w3mService.address!=null){
+       Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Homescreen()),
+                  ); 
+    }
     loginNotifier.initializeState();
+    
   }
    Widget build(BuildContext context) {
     return ChangeNotifierProvider(create:  (context) => loginNotifier,
@@ -44,10 +51,10 @@ class _LoginpageState extends State<Loginpage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Homescreen()),
+                    MaterialPageRoute(builder: (context) => const Homescreen()),
                   );
                 },
-                child: Text('Go to Home Screen'),
+                child: const Text('Go to Home Screen'),
               ),
               ]
               
