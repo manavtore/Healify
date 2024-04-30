@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:healtify/screens/auth/loginscreen.dart';
+import 'package:healtify/screens/auth/metamask/loginscreen.dart';
 import 'package:healtify/utils/routes/routes.dart';
+import 'package:firebase_core/firebase_core.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    // options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-void main() {
   runApp(const MyApp());
 }
 
@@ -20,7 +25,7 @@ class MyApp extends StatelessWidget {
         home: MaterialApp(
           initialRoute: '/login',
           routes: {
-            '/': (context) => const Loginpage(), // If you want a default route
+            '/': (context) => const Loginpage(), 
           StatRoutes.loginRoute: (context) => const Loginpage(), 
 
           },

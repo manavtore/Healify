@@ -50,3 +50,5 @@ BlockChain/.env
 Backend/node_modules/
 Backend/.env
 .env
+
+Backend/dist
