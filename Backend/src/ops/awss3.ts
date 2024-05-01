@@ -1,7 +1,7 @@
 import { S3 } from "aws-sdk";
 import { File } from "../models/File";
 
-async function generateUploadPresignedUrl(file: File): Promise<string> {
+export async  function  generateUploadPresignedUrl(file: File): Promise<string> {
   const s3 = new S3();
   const expiration = 10 * 60; 
 
@@ -20,7 +20,7 @@ async function generateUploadPresignedUrl(file: File): Promise<string> {
   }
 }
 
-async function generateDownloadPresignedUrl(file: File): Promise<string> {
+export async function generateDownloadPresignedUrl(file: File): Promise<string> {
   const s3 = new S3();
   const expiration = 6 * 24 * 60 * 60; 
 

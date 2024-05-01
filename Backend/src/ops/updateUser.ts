@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-async function updateUser(
+export async function updateUser(
   id: string,
   data: {
     name?: string;
