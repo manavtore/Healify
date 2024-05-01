@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healtify/screens/auth/loginotifier.dart';
+import 'package:healtify/screens/auth/metamask/loginotifier.dart';
 import 'package:healtify/screens/homescreen.dart';
 import 'package:healtify/utils/assets/constants.dart';
 import 'package:provider/provider.dart';
@@ -18,12 +18,6 @@ class _LoginpageState extends State<Loginpage> {
   @override
   void initState() {
     super.initState();
-    if(loginNotifier.w3mService.address!=null){
-       Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Homescreen()),
-                  ); 
-    }
     loginNotifier.initializeState();
     
   }

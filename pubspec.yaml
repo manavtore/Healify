@@ -42,6 +42,7 @@ dependencies:
   web3dart: ^2.7.1
   web3modal_flutter: ^3.0.1
   provider: ^6.1.2
+  firebase_auth: ^4.17.8
 
 dev_dependencies:
   flutter_test:
