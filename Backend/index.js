@@ -1,14 +1,14 @@
 const express = require("express");
 const { PrismaClient } = require("@prisma/client");
 const deleteRecordById = require("./ops/deleterecord");
-const deleteUserByUsername = require("./ops/deleteUser");
+const deleteUserByUsername = require("./src/ops/deleteUser");
 const saveRecord = require("./ops/saveRecord");
 const createUser = require("./ops/saveUser");
-const getRecord = require("./ops/getRecord");
-const getUserByUsername = require("./ops/getUser");
-const prisma = require("./prisma/Client");
-const updateRecordById = require("./ops/updaterecord");
-const updateUser = require("./ops/updateUser");
+const getRecord = require("./src/ops/getRecord");
+const getUserByUsername = require("./src/ops/getUser");
+const prisma = require("./src/prisma/Client");
+const updateRecordById = require("./src/ops/updaterecord");
+const updateUser = require("./src/ops/updateUser");
 const {
   generateUploadPresignedUrl,
   generateDownloadPresignedUrl,

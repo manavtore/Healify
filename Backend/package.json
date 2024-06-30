@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "node index.js",
     "build": "npm install",
-    "start": "node src/Backend/index.js" 
-   },
+    "start": "node index.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -27,4 +27,3 @@
     "uuid": "^9.0.1"
   }
 }
-
