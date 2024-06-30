@@ -1,7 +1,7 @@
-import prisma from "../prisma/Client";
-import { Record } from "../models/Record";
+const prisma = require("../prisma/Client");
+require("../models/Record");
 
-const saveRecord = async (recordData: Record) => {
+const saveRecord = async (recordData) => {
   try {
     const createdRecord = await prisma.record.create({
       data: {
@@ -29,4 +29,4 @@ const saveRecord = async (recordData: Record) => {
   }
 };
 
-export default saveRecord;
+module.exports = saveRecord;

@@ -1,9 +1,9 @@
-import { S3 } from "aws-sdk";
-import { File } from "../models/File";
+const { S3 } = require("aws-sdk");
+const { File } = require("../models/File");
 
-export async  function  generateUploadPresignedUrl(file: File): Promise<string> {
+async function generateUploadPresignedUrl(file) {
   const s3 = new S3();
-  const expiration = 10 * 60; 
+  const expiration = 10 * 60;
 
   const params = {
     Bucket: file.bucketName,
@@ -20,9 +20,9 @@ export async  function  generateUploadPresignedUrl(file: File): Promise<string> 
   }
 }
 
-export async function generateDownloadPresignedUrl(file: File): Promise<string> {
+async function generateDownloadPresignedUrl(file) {
   const s3 = new S3();
-  const expiration = 6 * 24 * 60 * 60; 
+  const expiration = 6 * 24 * 60 * 60;
 
   const params = {
     Bucket: file.bucketName,
@@ -38,3 +38,8 @@ export async function generateDownloadPresignedUrl(file: File): Promise<string> 
     throw error;
   }
 }
+
+module.exports = {
+  generateUploadPresignedUrl,
+  generateDownloadPresignedUrl,
+};

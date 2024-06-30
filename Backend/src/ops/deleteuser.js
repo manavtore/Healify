@@ -1,8 +1,10 @@
 import { PrismaClient } from "@prisma/client";
+import prisma  from "../prisma/Client";
 
 const prisma = new PrismaClient();
 
-export async function deleteUserByUsername(username: string) {
+
+async function deleteUserByUsername(username) {
   try {
     const user = await prisma.user.findUnique({
       where: {

@@ -1,10 +1,9 @@
-import { PrismaClient } from '@prisma/client';
-import { Record } from '../models/Record';
-import exp from 'constants';
+import { PrismaClient } from "@prisma/client";
+import { Record } from "../models/Record";
 
 const prisma = new PrismaClient();
 
-export async function updateRecordById(recordId: string, recordData: Record) {
+async function updateRecordById(recordId, recordData) {
   try {
     const existingRecord = await prisma.record.findUnique({
       where: {
@@ -21,8 +20,7 @@ export async function updateRecordById(recordId: string, recordData: Record) {
       where: {
         id: recordId,
       },
-      
-       data: recordData as any,
+      data: recordData,
     });
 
     console.log(`Record with ID ${recordId} updated successfully`);
