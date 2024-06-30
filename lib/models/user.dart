@@ -1,10 +1,28 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
+UserModel userModelFromMap(String str) => UserModel.fromMap(json.decode(str));
 
-class User {
-    String? id;
+String userModelToMap(UserModel data) => json.encode(data.toMap());
+
+class UserModel {
+  Data? data;
+
+  UserModel({
+    this.data,
+  });
+
+  factory UserModel.fromMap(Map<String, dynamic> json) => UserModel(
+        data: json["data"] == null ? null : Data.fromMap(json["data"]),
+      );
+
+  Map<String, dynamic> toMap() => {
+        "data": data?.toMap(),
+      };
+}
+
+class Data {
+  String? id;
   String? name;
   String? username;
   String? height;
@@ -16,7 +34,8 @@ class User {
   String? image;
   String? authId;
   List<Record>? records;
-  User({
+
+  Data({
     this.id,
     this.name,
     this.username,
@@ -31,112 +50,132 @@ class User {
     this.records,
   });
 
+  factory Data.fromMap(Map<String, dynamic> json) => Data(
+        id: json["id"],
+        name: json["name"],
+        username: json["username"],
+        height: json["height"],
+        weight: json["weight"],
+        age: json["age"],
+        bloodgroup: json["bloodgroup"],
+        gender: json["gender"],
+        address: json["address"],
+        image: json["image"],
+        authId: json["authId"],
+        records: json["records"] == null
+            ? []
+            : List<Record>.from(json["records"]!.map((x) => Record.fromMap(x))),
+      );
 
-  User copyWith({
-    String? id,
-    String? name,
-    String? username,
-    String? height,
-    String? weight,
-    String? age,
-    String? bloodgroup,
-    String? gender,
-    String? address,
-    String? image,
-    String? authId,
-    List<Record>? records,
-  }) {
-    return User(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      username: username ?? this.username,
-      height: height ?? this.height,
-      weight: weight ?? this.weight,
-      age: age ?? this.age,
-      bloodgroup: bloodgroup ?? this.bloodgroup,
-      gender: gender ?? this.gender,
-      address: address ?? this.address,
-      image: image ?? this.image,
-      authId: authId ?? this.authId,
-      records: records ?? this.records,
-    );
-  }
+  Map<String, dynamic> toMap() => {
+        "id": id,
+        "name": name,
+        "username": username,
+        "height": height,
+        "weight": weight,
+        "age": age,
+        "bloodgroup": bloodgroup,
+        "gender": gender,
+        "address": address,
+        "image": image,
+        "authId": authId,
+        "records": records == null
+            ? []
+            : List<dynamic>.from(records!.map((x) => x.toMap())),
+      };
+}
 
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'id': id,
-      'name': name,
-      'username': username,
-      'height': height,
-      'weight': weight,
-      'age': age,
-      'bloodgroup': bloodgroup,
-      'gender': gender,
-      'address': address,
-      'image': image,
-      'authId': authId,
-      // 'records': records?.map((x) => x.toMap()).toList(),
-    };
-  }
+class Record {
+  String? id;
+  String? title;
+  String? date;
+  List<String>? symptoms;
+  List<String>? diagnosis;
+  List<dynamic>? treatment;
+  String? userId;
+  List<Report>? reports;
 
-  factory User.fromMap(Map<String, dynamic> map) {
-    return User(
-      id: map['id'] != null ? map['id'] as String : null,
-      name: map['name'] != null ? map['name'] as String : null,
-      username: map['username'] != null ? map['username'] as String : null,
-      height: map['height'] != null ? map['height'] as String : null,
-      weight: map['weight'] != null ? map['weight'] as String : null,
-      age: map['age'] != null ? map['age'] as String : null,
-      bloodgroup: map['bloodgroup'] != null ? map['bloodgroup'] as String : null,
-      gender: map['gender'] != null ? map['gender'] as String : null,
-      address: map['address'] != null ? map['address'] as String : null,
-      image: map['image'] != null ? map['image'] as String : null,
-      authId: map['authId'] != null ? map['authId'] as String : null,
-      // records: map['records'] != null ? List<Record>.from((map['records'] as List<int>).map<Record?>((x) => Record.fromMap(x as Map<String,dynamic>),),) : null,
-    );
-  }
+  Record({
+    this.id,
+    this.title,
+    this.date,
+    this.symptoms,
+    this.diagnosis,
+    this.treatment,
+    this.userId,
+    this.reports,
+  });
 
-  String toJson() => json.encode(toMap());
+  factory Record.fromMap(Map<String, dynamic> json) => Record(
+        id: json["id"],
+        title: json["title"],
+        date: json["date"],
+        symptoms: json["symptoms"] == null
+            ? []
+            : List<String>.from(json["symptoms"]!.map((x) => x)),
+        diagnosis: json["diagnosis"] == null
+            ? []
+            : List<String>.from(json["diagnosis"]!.map((x) => x)),
+        treatment: json["treatment"] == null
+            ? []
+            : List<dynamic>.from(json["treatment"]!.map((x) => x)),
+        userId: json["userId"],
+        reports: json["reports"] == null
+            ? []
+            : List<Report>.from(json["reports"]!.map((x) => Report.fromMap(x))),
+      );
 
-  factory User.fromJson(String source) => User.fromMap(json.decode(source) as Map<String, dynamic>);
+  Map<String, dynamic> toMap() => {
+        "id": id,
+        "title": title,
+        "date": date,
+        "symptoms":
+            symptoms == null ? [] : List<dynamic>.from(symptoms!.map((x) => x)),
+        "diagnosis": diagnosis == null
+            ? []
+            : List<dynamic>.from(diagnosis!.map((x) => x)),
+        "treatment": treatment == null
+            ? []
+            : List<dynamic>.from(treatment!.map((x) => x)),
+        "userId": userId,
+        "reports": reports == null
+            ? []
+            : List<dynamic>.from(reports!.map((x) => x.toMap())),
+      };
+}
 
-  @override
-  String toString() {
-    return 'User(id: $id, name: $name, username: $username, height: $height, weight: $weight, age: $age, bloodgroup: $bloodgroup, gender: $gender, address: $address, image: $image, authId: $authId, records: $records)';
-  }
+class Report {
+  String? id;
+  String? bucketName;
+  String? objectKey;
+  String? content;
+  String? username;
+  String? recordId;
 
-  @override
-  bool operator ==(covariant User other) {
-    if (identical(this, other)) return true;
-  
-    return 
-      other.id == id &&
-      other.name == name &&
-      other.username == username &&
-      other.height == height &&
-      other.weight == weight &&
-      other.age == age &&
-      other.bloodgroup == bloodgroup &&
-      other.gender == gender &&
-      other.address == address &&
-      other.image == image &&
-      other.authId == authId &&
-      listEquals(other.records, records);
-  }
+  Report({
+    this.id,
+    this.bucketName,
+    this.objectKey,
+    this.content,
+    this.username,
+    this.recordId,
+  });
 
-  @override
-  int get hashCode {
-    return id.hashCode ^
-      name.hashCode ^
-      username.hashCode ^
-      height.hashCode ^
-      weight.hashCode ^
-      age.hashCode ^
-      bloodgroup.hashCode ^
-      gender.hashCode ^
-      address.hashCode ^
-      image.hashCode ^
-      authId.hashCode ^
-      records.hashCode;
-  }
+  factory Report.fromMap(Map<String, dynamic> json) => Report(
+        id: json["id"],
+        bucketName: json["bucketName"],
+        objectKey: json["objectKey"],
+        content: json["content"],
+        username: json["username"],
+        recordId: json["recordId"],
+      );
+
+  Map<String, dynamic> toMap() => {
+        "id": id,
+        "bucketName": bucketName,
+        "objectKey": objectKey,
+        "content": content,
+        "username": username,
+        "recordId": recordId,
+      };
 }

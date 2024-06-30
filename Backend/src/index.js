@@ -12,8 +12,7 @@ const updateUser = require("./ops/updateUser");
 const {
   generateUploadPresignedUrl,
   generateDownloadPresignedUrl,
-} = require("./ops/s3Operations"); // Assuming you have these functions in s3Operations.js
-
+} = require("./ops/s3Operations");
 const app = express();
 const PORT = process.env.PORT || 3001;
 

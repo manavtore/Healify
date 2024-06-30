@@ -24,7 +24,6 @@ class _LoginpageState extends State<Loginpage> {
    Widget build(BuildContext context) {
     return ChangeNotifierProvider(create:  (context) => loginNotifier,
       child: MaterialApp(
-        title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
