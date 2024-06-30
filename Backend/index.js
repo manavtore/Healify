@@ -1,14 +1,14 @@
 const express = require("express");
 const { PrismaClient } = require("@prisma/client");
-const deleteRecordById = require("./ops/deleterecord");
-import deleteUserByUsername from "./src/ops/deleteuser";
+const deleteRecordById = require("./ops/deleteRecord");
+const deleteUserByUsername =require("./ops/deleteuser");
 const saveRecord = require("./ops/saveRecord");
 const createUser = require("./ops/saveUser");
 const getRecord = require("./src/ops/getRecord");
 const getUserByUsername = require("./src/ops/getUser");
 const prisma = require("./src/prisma/Client");
 const updateUser = require("./src/ops/updateUser");
-import updateRecordById from "./src/ops/updateRecord";
+const updateRecordById =require("./src/ops/updateRecord");
 const {
   generateUploadPresignedUrl,
   generateDownloadPresignedUrl,
