@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { Record } from "../models/Record";
 
 const prisma = new PrismaClient();
 

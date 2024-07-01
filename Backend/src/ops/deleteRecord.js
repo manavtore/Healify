@@ -1,8 +1,8 @@
-const prisma = require("../prisma/Client");
+import { record } from "../prisma/Client";
 
 const deleteRecord = async (recordId) => {
   try {
-    const deletedRecord = await prisma.record.delete({
+    const deletedRecord = await record.delete({
       where: {
         id: recordId,
       },
@@ -13,4 +13,4 @@ const deleteRecord = async (recordId) => {
   }
 };
 
-module.exports = deleteRecord;
+export default deleteRecord;

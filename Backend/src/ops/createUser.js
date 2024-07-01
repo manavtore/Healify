@@ -1,6 +1,4 @@
 import prisma from '../prisma/Client'
-import User from '../models/User'
-import Record from '../models/Record'
 
 const createUser = async (userData) => {
     try{

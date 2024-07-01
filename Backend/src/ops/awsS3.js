@@ -1,5 +1,4 @@
 import { S3 } from "aws-sdk";
-import { File } from "../models/File";
 
 async function generateUploadPresignedUrl(file) {
   const s3 = new S3();
