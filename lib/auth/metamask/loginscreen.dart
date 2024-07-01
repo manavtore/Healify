@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healtify/screens/auth/metamask/loginotifier.dart';
+import 'package:healtify/auth/metamask/loginotifier.dart';
 import 'package:healtify/screens/homescreen.dart';
 import 'package:healtify/utils/assets/constants.dart';
 import 'package:provider/provider.dart';

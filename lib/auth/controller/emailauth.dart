@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healtify/screens/auth/auth/authcontroller.dart';
+import 'package:healtify/auth/controller/authcontroller.dart';
 import 'package:provider/provider.dart';
 
 class emailauth extends StatefulWidget {

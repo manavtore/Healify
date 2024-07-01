@@ -1,14 +1,14 @@
 const express = require("express");
 const { PrismaClient } = require("@prisma/client");
-const deleteRecordById = require("./ops/deleteRecord");
-const deleteUserByUsername =require("./ops/deleteuser");
-const saveRecord = require("./ops/saveRecord");
-const createUser = require("./ops/saveUser");
+const deleteRecordById = require("./src/ops/deleteRecord");
+const saveRecord = require("./src/ops/createRecord");
+const createUser = require("./src/ops/createUser");
 const getRecord = require("./src/ops/getRecord");
 const getUserByUsername = require("./src/ops/getUser");
 const prisma = require("./src/prisma/Client");
 const updateUser = require("./src/ops/updateUser");
 const updateRecordById =require("./src/ops/updateRecord");
+
 const {
   generateUploadPresignedUrl,
   generateDownloadPresignedUrl,
@@ -55,7 +55,7 @@ app.post("/getUser", async (req, res, next) => {
   }
 });
 app.post("/saveRecord", saveRecord);
-app.post("/saveUser", createUser);
+app.post("/saveUser", createUser)
 
 app.post("/updateRecord", async (req, res, next) => {
   try {

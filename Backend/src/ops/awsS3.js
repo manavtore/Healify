@@ -1,5 +1,5 @@
-const { S3 } = require("aws-sdk");
-const { File } = require("../models/File");
+import { S3 } from "aws-sdk";
+import { File } from "../models/File";
 
 async function generateUploadPresignedUrl(file) {
   const s3 = new S3();
@@ -39,7 +39,7 @@ async function generateDownloadPresignedUrl(file) {
   }
 }
 
-module.exports = {
+export default {
   generateUploadPresignedUrl,
   generateDownloadPresignedUrl,
 };

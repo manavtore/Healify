@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healtify/firebase_options.dart';
-import 'package:healtify/screens/auth/auth/emailauth.dart';
-import 'package:healtify/screens/auth/metamask/loginscreen.dart';
+import 'package:healtify/auth/controller/emailauth.dart';
+import 'package:healtify/auth/metamask/loginscreen.dart';
 import 'package:healtify/utils/routes/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 Future<void> main() async {

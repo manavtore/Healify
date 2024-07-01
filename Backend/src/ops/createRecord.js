@@ -29,4 +29,4 @@ const saveRecord = async (recordData) => {
   }
 };
 
-module.exports = saveRecord;
+export default saveRecord;
