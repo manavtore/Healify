@@ -1,19 +1,24 @@
-import express, { json } from "express";
-import { $disconnect } from "./src/prisma/Client";
-import deleteRecordById from "./src/ops/deleteRecord";
-import saveRecord from "./src/ops/createRecord";
-import createUser from "./src/ops/createUser";
-import getRecord from "./src/ops/getRecord";
-import getUserByUsername from "./src/ops/getUser";
-import prisma from "./src/prisma/Client";
-import updateUser from "./src/ops/updateUser";
-import updateRecordById from "./src/ops/updateRecord";
+const express = require("express");
 
-import { generateUploadPresignedUrl, generateDownloadPresignedUrl } from "./ops/s3Operations";
+
+const prisma = require("./src/prisma/Client");
+const deleteRecordById = require("./src/ops/deleteRecord");
+const saveRecord = require("./src/ops/createRecord");
+const createUser = require("./src/ops/createUser");
+const getRecord = require("./src/ops/getRecord");
+const getUserByUsername = require("./src/ops/getUser");
+const prisma = require("./src/prisma/Client");
+const updateUser = require("./src/ops/updateUser");
+const updateRecordById =require("./src/ops/updateRecord");
+
+const {
+  generateUploadPresignedUrl,
+  generateDownloadPresignedUrl,
+} = require("./ops/s3Operations");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(json());
+app.use(express.json());
 
 app.post("/generateUploadPresignedUrl", async (req, res, next) => {
   try {
@@ -82,7 +87,7 @@ app.listen(PORT, () => {
 
 process.on("SIGINT", async () => {
   try {
-    await $disconnect();
+    await prisma.$disconnect();
     console.log("Prisma client disconnected.");
     process.exit(0);
   } catch (e) {
