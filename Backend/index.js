@@ -1,7 +1,5 @@
 const express = require("express");
 
-
-const prisma = require("./src/prisma/Client");
 const deleteRecordById = require("./src/ops/deleteRecord");
 const saveRecord = require("./src/ops/createRecord");
 const createUser = require("./src/ops/createUser");
